@@ -7,24 +7,24 @@
  */
 
 import React from 'react';
+import {NativeRouter, Route} from 'react-router-native';
+
 import {StyleSheet, View} from 'react-native';
 import SumMoney from './components/header/SumMoney';
-import FooterArea from './components/footer/FooterArea';
-import Content from './components/content/Content';
+import Home from './page/Home';
+import AddPage from './page/AddPage';
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <SumMoney />
+    <NativeRouter>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <SumMoney />
+        </View>
+        <Route exact path="/" component={Home} />
+        <Route path="/add" component={AddPage} />
       </View>
-      <View style={styles.content}>
-        <Content />
-      </View>
-      <View style={styles.footer}>
-        <FooterArea />
-      </View>
-    </View>
+    </NativeRouter>
   );
 };
 
@@ -43,16 +43,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     backgroundColor: '#86B825',
-  },
-  content: {
-    flex: 4,
-  },
-  footer: {
-    flex: 1,
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 

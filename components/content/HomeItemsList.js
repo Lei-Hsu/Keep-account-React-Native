@@ -26,13 +26,14 @@ const styles = StyleSheet.create({
     marginTop: 15,
     paddingBottom: 10,
     paddingHorizontal: 10,
-    borderBottomWidth: 1,
-    borderColor: '#ff00ff',
+    borderBottomWidth: 1.5,
+    borderBottomColor: '#86B825',
   },
   textStyle: {
     width: '33%',
     textAlign: 'center',
     fontSize: 16,
+    fontWeight: 'bold',
   },
   deleteArea: {
     flexDirection: 'row',
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
     width: '30%',
     color: 'red',
     fontSize: 14,
+    fontWeight: 'bold',
   },
 });
 

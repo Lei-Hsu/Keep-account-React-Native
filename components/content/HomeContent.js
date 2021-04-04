@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {View, Text, FlatList, SafeAreaView} from 'react-native';
-import ItemsList from './ItemsList';
+import React from 'react';
+import {FlatList, SafeAreaView} from 'react-native';
+import HomeItemsList from './HomeItemsList';
 
 function Content() {
   const DATA = [
@@ -27,7 +27,7 @@ function Content() {
     <SafeAreaView>
       <FlatList
         data={DATA}
-        renderItem={item => <ItemsList item={item.item} />}
+        renderItem={item => <HomeItemsList item={item.item} />}
         keyExtractor={item => item.id}
       />
     </SafeAreaView>
