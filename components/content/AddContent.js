@@ -1,50 +1,100 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {v4 as uuidv4} from 'uuid';
 import {View, TextInput, StyleSheet, Text} from 'react-native';
+import {useHistory} from 'react-router-native';
+import {addItem} from '../../Redux/action';
 
 function AddContent() {
+  const [item, setItem] = useState();
+  const [price, setPrice] = useState();
+
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const submit = category => {
+    let data = {
+      id: uuidv4(),
+      item: item,
+      category: category,
+      price: price,
+    };
+    dispatch(addItem(data));
+    history.push('/');
+  };
   return (
     <View>
       <View>
         <View>
-          <TextInput style={styles.input} placeholder="請輸入購買的商品" />
+          <TextInput
+            style={styles.input}
+            placeholder="請輸入購買的商品"
+            onChangeText={setItem}
+          />
         </View>
         <View>
-          <TextInput style={styles.input} placeholder="請輸入價錢" />
+          <TextInput
+            style={styles.input}
+            placeholder="請輸入價錢"
+            onChangeText={setPrice}
+          />
         </View>
       </View>
       <View style={styles.categoryArea}>
         <View style={styles.category}>
-          <Text style={styles.textStyle}>飲食</Text>
+          <Text style={styles.textStyle} onPress={() => submit('飲食')}>
+            飲食
+          </Text>
         </View>
         <View style={styles.category}>
-          <Text style={styles.textStyle}>交通油錢</Text>
+          <Text style={styles.textStyle} onPress={() => submit('交通油錢')}>
+            交通油錢
+          </Text>
         </View>
         <View style={styles.category}>
-          <Text style={styles.textStyle}>日常用品</Text>
+          <Text style={styles.textStyle} onPress={() => submit('日常用品')}>
+            日常用品
+          </Text>
         </View>
         <View style={styles.category}>
-          <Text style={styles.textStyle}>娛樂</Text>
+          <Text style={styles.textStyle} onPress={() => submit('娛樂')}>
+            娛樂
+          </Text>
         </View>
         <View style={styles.category}>
-          <Text style={styles.textStyle}>居家</Text>
+          <Text style={styles.textStyle} onPress={() => submit('居家')}>
+            居家
+          </Text>
         </View>
         <View style={styles.category}>
-          <Text style={styles.textStyle}>學習</Text>
+          <Text style={styles.textStyle} onPress={() => submit('學習')}>
+            學習
+          </Text>
         </View>
         <View style={styles.category}>
-          <Text style={styles.textStyle}>醫療</Text>
+          <Text style={styles.textStyle} onPress={() => submit('醫療')}>
+            醫療
+          </Text>
         </View>
         <View style={styles.category}>
-          <Text style={styles.textStyle}>電話網路</Text>
+          <Text style={styles.textStyle} onPress={() => submit('電話網路')}>
+            電話網路
+          </Text>
         </View>
         <View style={styles.category}>
-          <Text style={styles.textStyle}>水電瓦斯</Text>
+          <Text style={styles.textStyle} onPress={() => submit('水電瓦斯')}>
+            水電瓦斯
+          </Text>
         </View>
         <View style={styles.category}>
-          <Text style={styles.textStyle}>運動健身</Text>
+          <Text style={styles.textStyle} onPress={() => submit('運動健身')}>
+            運動健身
+          </Text>
         </View>
         <View style={styles.category}>
-          <Text style={styles.textStyle}>治裝費</Text>
+          <Text style={styles.textStyle} onPress={() => submit('治裝費')}>
+            治裝費
+          </Text>
         </View>
       </View>
     </View>
@@ -76,6 +126,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textStyle: {
+    width: '100%',
+    textAlign: 'center',
     color: '#FFF9DC',
   },
 });

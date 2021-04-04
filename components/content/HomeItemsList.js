@@ -1,7 +1,11 @@
 import React from 'react';
+import {useDispatch} from 'react-redux';
+import {deleteItem} from '../../Redux/action';
+
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 
 function ItemsList({item}) {
+  const dispatch = useDispatch();
   return (
     <TouchableOpacity>
       <View style={styles.itemStyle}>
@@ -9,7 +13,11 @@ function ItemsList({item}) {
         <Text style={styles.textStyle}>{item.item}</Text>
         <View style={styles.deleteArea}>
           <Text style={styles.textStyle}>{item.price}</Text>
-          <Text style={styles.deleteStyle}>X</Text>
+          <Text
+            style={styles.deleteStyle}
+            onPress={() => dispatch(deleteItem(item.id))}>
+            X
+          </Text>
         </View>
       </View>
     </TouchableOpacity>

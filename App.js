@@ -8,6 +8,8 @@
 
 import React from 'react';
 import {NativeRouter, Route} from 'react-router-native';
+import {Provider} from 'react-redux';
+import store from './Redux/store';
 
 import {StyleSheet, View} from 'react-native';
 import SumMoney from './components/header/SumMoney';
@@ -16,15 +18,17 @@ import AddPage from './page/AddPage';
 
 const App = () => {
   return (
-    <NativeRouter>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <SumMoney />
+    <Provider store={store}>
+      <NativeRouter>
+        <View style={styles.container}>
+          <View style={styles.header}>
+            <SumMoney />
+          </View>
+          <Route exact path="/" component={Home} />
+          <Route path="/add" component={AddPage} />
         </View>
-        <Route exact path="/" component={Home} />
-        <Route path="/add" component={AddPage} />
-      </View>
-    </NativeRouter>
+      </NativeRouter>
+    </Provider>
   );
 };
 
