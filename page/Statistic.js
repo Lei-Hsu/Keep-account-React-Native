@@ -1,14 +1,13 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-
-import AddContent from '../components/content/AddContent';
 import GoBackFooter from '../components/footer/GoBackFooter';
+import StatisticContent from '../components/content/StatisticContent';
 
-function AddPage() {
+function Statistic() {
   return (
     <>
       <View style={styles.content}>
-        <AddContent />
+        <StatisticContent />
       </View>
       <View style={styles.footer}>
         <GoBackFooter />
@@ -28,5 +27,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
-export default AddPage;
+export default Statistic;

@@ -15,6 +15,7 @@ import {StyleSheet, View} from 'react-native';
 import SumMoney from './components/header/SumMoney';
 import Home from './page/Home';
 import AddPage from './page/AddPage';
+import Statistic from './page/Statistic';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           </View>
           <Route exact path="/" component={Home} />
           <Route path="/add" component={AddPage} />
+          <Route path="/statistic" component={Statistic} />
         </View>
       </NativeRouter>
     </Provider>

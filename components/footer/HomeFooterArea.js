@@ -11,7 +11,7 @@ function FooterArea() {
         </Link>
       </View>
       <View style={styles.statistic}>
-        <Link style={styles.linkStyle} to="/add">
+        <Link style={styles.linkStyle} to="/statistic">
           <Text style={styles.text}>統計圖表</Text>
         </Link>
       </View>
